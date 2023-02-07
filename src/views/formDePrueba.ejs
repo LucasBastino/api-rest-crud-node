@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../public/styles.css" rel="stylesheet" type="text/css">
+    <title>Formulario de Prueba</title>
+</head>
+<body>
+    
+    <h1>FORMULARIO DE PRUEBA MONGODB</h1>
+
+    <form action="/agregarAfiliado" method="POST">
+
+        <input id="nombre" type="text" name="nombre" placeholder="Nombre">
+        <input id="apellido" type="text" name="apellido" placeholder="Apellido">
+        <input id="edad" type="number" name="edad" placeholder="Edad">
+        <button type="submit">Enviar</button>
+    </form>
+
+    <ul>
+    <% afiliados.forEach( afiliado => { %>
+        <li><%= afiliado.nombre; %></li>
+        <p>edad: <%= afiliado.edad; %></p>
+        <a href="/editarAfiliado/<%=afiliado._id%>">Editar</a>  <!-- va al editarAfiliado del routes, no al .ejs, desp el del routes si va al .ejs -->
+        <a href="/eliminarAfiliado/<%=afiliado._id%>">Eliminar</a>
+    <% }); %>
+    </ul>
+
+</body>
+</html>
